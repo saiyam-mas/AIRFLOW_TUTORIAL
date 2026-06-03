@@ -5,6 +5,15 @@ build/
 dist/
 wheels/
 *.egg-info
+
+# Environment variables (contains secrets)
 .env
+
+# Airflow config contains Fernet key and other secrets
+config/airflow.cfg
+
 # Virtual environments
 .venv
+
+# Airflow logs
+logs/
