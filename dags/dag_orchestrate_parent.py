@@ -14,12 +14,14 @@ def dag_orchestrate_parent():
 
     trigger_first_dag = TriggerDagRunOperator(
         task_id="trigger_first_orchestrator_dag",
-        trigger_dag_id="first_orchestrator_dag"
+        trigger_dag_id="first_orchestrator_dag",
+        wait_for_completion=True # Optional (This is slow): Waits for the triggered DAG to complete
     )
 
     trigger_second_dag = TriggerDagRunOperator(
         task_id="trigger_second_orchestrator_dag",
         trigger_dag_id="second_orchestrator_dag",
+        wait_for_completion=True # Optional (This is slow): Waits for the triggered DAG to complete
     )
 
     trigger_first_dag >> trigger_second_dag
